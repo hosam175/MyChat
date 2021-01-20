@@ -27,14 +27,14 @@ app.listen(app.get('port'), function () {
 
   app.get("/setup", function (req, res) {
  
-    var data ={
+    var data =[
       { 
         "get_started":{
           "payload":"<GET_STARTED_PAYLOAD>"
         }
       }
 
-    }
+    ]
   });
   
   request(
