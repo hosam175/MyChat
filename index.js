@@ -2,7 +2,11 @@ const express = require('express')
 
 const bodyParser = require('body-parser');
 const app = express();
+
 const request = require("request");
+
+const PAGE_ACCESS_TOKEN ="EAAJ8qdCTQo4BAFFoOrN1nW1bsw3XTqR3f0BCgfCJohp6eYRPN7ZAUIBu7QxxRAZAZCxWOLD9T3c18nOwVAt1cu4qAOTuq8rWlu5cFoDnY5RNUsbQ2VWvAE3cACUbgHOcvEwZAyrs9Rs6LiZA9QDwZCK9hP3jgcj9qw2UHQOoxbpMvKH2SKVhqJXZAYrYVZCMxHgZD"
+const api_url = "https://graph.facebook.com/v9.0/me/messages?access_token=<PAGE_ACCESS_TOKEN>"
 // app configuration
 app.set('port', (process.env.PORT || 8000));
 
@@ -20,6 +24,34 @@ app.listen(app.get('port'), function () {
 
     res.send("Hey I am Here");
   });
+
+  app.get("/setup", function (req, res) {
+ 
+    var data ={
+      { 
+        "get_started":{
+          "payload":"<GET_STARTED_PAYLOAD>"
+        }
+      }
+
+    };
+  });
+  
+  request(
+    {
+
+       url : "https://graph.facebook.com/v9.0/me/messages?access_token=" +PAGE_ACCESS_TOKEN ,
+       method :"POST" ,
+       headers :{ "Content-Type": "application/json"},
+       form : data
+    },
+    function(error, response, body){
+
+      console.log(response);
+      console.log(body);
+    }
+  );
+
   
   app.get("/webhook", function (req, res) {
 
