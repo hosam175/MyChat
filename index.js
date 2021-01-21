@@ -28,11 +28,11 @@ app.listen(app.get('port'), function () {
   app.get("/setup", function (req, res) {
  
     var data = { 
-      "greeting": [
+      "greeting":[
         {
            "locale": "default",
-           "text": "Hello!"
-        },
+           "text": "Hello {{user_full_name}} Can I Help you!"
+        }
         
      ]
   };
@@ -40,7 +40,7 @@ app.listen(app.get('port'), function () {
   request(
     {
 
-       url : "https://graph.facebook.com/v9.0/me/messenger_profile?access_token=" + PAGE_ACCESS_TOKEN ,
+       url : "https://graph.facebook.com/v9.0/me/messenger_profile?access_token=" + PAGE_ACCESS_TOKEN,
        method :"POST" ,
        headers :{ "Content-Type": "application/json"},
        form : data
