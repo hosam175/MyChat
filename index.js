@@ -28,12 +28,13 @@ app.listen(app.get('port'), function () {
   app.get("/setup", function (req, res) {
  
     var data = { 
-        "greeting":[
-          {
-          "local":"default",
-          "text":"Heloid" ,
-        }
-      ]
+      "greeting": [
+        {
+           "locale": "default",
+           "text": "Hello!"
+        },
+        
+     ]
   };
   
   request(
