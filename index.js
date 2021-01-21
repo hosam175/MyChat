@@ -31,7 +31,7 @@ app.listen(app.get('port'), function () {
     var data ={ 
         "greeting":[
           {
-          "local":"defult",
+          "local":"default",
           "text":"Heloid"
         }
       ]
