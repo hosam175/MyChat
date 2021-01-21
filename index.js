@@ -27,23 +27,13 @@ app.listen(app.get('port'), function () {
 
   app.get("/setup", function (req, res) {
  
-    "data": [
-      {
-        "whitelisted_domains": [
-          "https://facebook.com/"
-        ],
-        "greeting": [
+    var data = { 
+        "greeting":[
           {
-             "locale": "default",
-             "text": "Hello!"
-          },
-          {
-             "locale": "en_US",
-             "text": "Timeless apparel for the masses."
-          }
-       ]
-    }
- ]
+          "local":"default",
+          "text":"Heloid" ,
+        }
+      ]
   };
   
   request(
@@ -60,7 +50,7 @@ app.listen(app.get('port'), function () {
       console.log(body);
     }
       );
-    res.send("Done");
+    res.send("Hey I am Here");
       });
 
   
