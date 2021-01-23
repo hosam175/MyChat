@@ -44,17 +44,17 @@ app.listen(app.get('port'), function () {
                     {
                         "type": "postback",
                         "title": "Talk to an agent",
-                        "payload": "payload"
+                        "payload": "PLYLOAD1"
                     },
                     {
                         "type": "postback",
                         "title": "Outfit suggestions",
-                        "payload": "payload2"
+                        "payload": "PLAYLOAD2"
                     },
                     {
                         "type": "web_url",
                         "title": "Shop now",
-                        "url": "https://www.facebook.com/Ourchat-100608232037119",
+                        "url": "https://www.facebook.com/Ourchat-100608232037119/",
                         "webview_height_ratio": "full"
                     }
                 ]
