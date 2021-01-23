@@ -44,17 +44,17 @@ app.listen(app.get('port'), function () {
                     {
                         "type": "postback",
                         "title": "Talk to an agent",
-                        "payload": "PAYLOAD1"
+                        "payload": "CARE_HELP"
                     },
                     {
                         "type": "postback",
                         "title": "Outfit suggestions",
-                        "payload": "PAYLOAD2"
+                        "payload": "CURATION"
                     },
                     {
                         "type": "web_url",
                         "title": "Shop now",
-                        "url": "https://www.facebook.com/Ourchat-100608232037119/",
+                        "url": "https://www.originalcoastclothing.com/",
                         "webview_height_ratio": "full"
                     }
                 ]
