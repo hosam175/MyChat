@@ -28,87 +28,56 @@ app.listen(app.get('port'), function () {
   app.get("/setup", function (req, res) {
     setupGretingText();
     setupGetStartedButton();
-    function addPersistentMenu(){
-      ();
+    setupPersistentMenu();
 
     
     res.send("Done");
       });
        
-      function addPersistentMenu(){
-        request({
-           url: 'https://graph.facebook.com/v2.6/me/messenger_profile',
-           qs: { access_token: PAGE_ACCESS_TOKEN },
-           method: 'POST',
-           json:{
-         "get_started":{
-           "payload":"GET_STARTED_PAYLOAD"
-          }
-        }
-       }, function(error, response, body) {
-           console.log(response)
-           if (error) {
-               console.log('Error sending messages: ', error)
-           } else if (response.body.error) {
-               console.log('Error: ', response.body.error)
-           }
-       })
-        request({
-           url: '"https://graph.facebook.com/v9.0/me/messenger_profile',
-           qs: { access_token: PAGE_ACCESS_TOKEN },
-           method: 'POST',
-           json:{
-       "persistent_menu":[
-           {
-             "locale":"default",
-             "composer_input_disabled":true,
-             "call_to_actions":[
-               {
-                 "title":"My Account",
-                 "type":"nested",
-                 "call_to_actions":[
-                   {
-                     "title":"Pay Bill",
-                     "type":"postback",
-                     "payload":"PAYBILL_PAYLOAD"
-                   },
-                   {
-                     "title":"History",
-                     "type":"postback",
-                     "payload":"HISTORY_PAYLOAD"
-                   },
-                   {
-                     "title":"Contact Info",
-                     "type":"postback",
-                     "payload":"CONTACT_INFO_PAYLOAD"
-                   }
-                 ]
-               },
-               {
-                 "type":"web_url",
-                 "title":"Latest News",
-                 "url":"http://foxnews.com",
-                 "webview_height_ratio":"full"
-               }
-             ]
-           },
-           {
-             "locale":"zh_CN",
-             "composer_input_disabled":false
-           }
-           ]
-           }
-       
-       }, function(error, response, body) {
-           console.log(response)
-           if (error) {
-               console.log('Error sending messages: ', error)
-           } else if (response.body.error) {
-               console.log('Error: ', response.body.error)
-           }
-       })
-       
-       }
+      function setupPersistentMenu(){
+        var data ={
+          "persistent_menu": [
+            {
+                "locale": "default",
+                "composer_input_disabled": false,
+                "call_to_actions": [
+                    {
+                        "type": "postback",
+                        "title": "Talk to an agent",
+                        "payload": "PAYLOAD1"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Outfit suggestions",
+                        "payload": "PAYLOAD2"
+                    },
+                    {
+                        "type": "web_url",
+                        "title": "Shop now",
+                        "url": "https://www.facebook.com/Ourchat-100608232037119/",
+                        "webview_height_ratio": "full"
+                    }
+                ]
+            }
+        ]
+   
+        };
+        request(
+         {
+     
+            url : "https://graph.facebook.com/v9.0/me/messenger_profile?access_token=" + PAGE_ACCESS_TOKEN,
+            method :"POST" ,
+            headers :{ "Content-Type": "application/json"},
+            form : data
+         },
+         function(error, response, body){
+     
+           console.log(response);
+           console.log(body);
+         }
+           );
+     
+         }
 
 
 
