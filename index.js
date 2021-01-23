@@ -26,7 +26,23 @@ app.listen(app.get('port'), function () {
   });
 
   app.get("/setup", function (req, res) {
- 
+    setupGretingText();
+    setupGetStartedButton();
+
+    
+    res.send("Done");
+      });
+
+      function setupGetStartedButton(){
+     var data ={
+      "get_started":{
+        "payload":"GET_STARTED_PAYLOAD"
+      }
+
+     };
+
+      }
+   function setupGretingText(){
     var data = { 
       "greeting":[
         {
@@ -51,10 +67,9 @@ app.listen(app.get('port'), function () {
       console.log(body);
     }
       );
-    res.send("Done");
-      });
 
-  
+   }
+
   app.get("/webhook", function (req, res) {
 
     const PAGE_VERIFY_TOKEN = "ourchatbotwebapp1234";
