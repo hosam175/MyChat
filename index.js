@@ -40,7 +40,21 @@ app.listen(app.get('port'), function () {
       }
 
      };
-
+     request(
+      {
+  
+         url : "https://graph.facebook.com/v9.0/me/messenger_profile?access_token=" + PAGE_ACCESS_TOKEN,
+         method :"POST" ,
+         headers :{ "Content-Type": "application/json"},
+         form : data
+      },
+      function(error, response, body){
+  
+        console.log(response);
+        console.log(body);
+      }
+        );
+  
       }
    function setupGretingText(){
     var data = { 
