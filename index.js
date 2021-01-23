@@ -28,10 +28,58 @@ app.listen(app.get('port'), function () {
   app.get("/setup", function (req, res) {
     setupGretingText();
     setupGetStartedButton();
+    setupPersistentMenu();
 
     
     res.send("Done");
       });
+       
+      function setupPersistentMenu(){
+        var data ={
+          "persistent_menu": [
+            {
+                "locale": "default",
+                "composer_input_disabled": false,
+                "call_to_actions": [
+                    {
+                        "type": "postback",
+                        "title": "Talk to an agent",
+                        "payload": "payload"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Outfit suggestions",
+                        "payload": "payload2"
+                    },
+                    {
+                        "type": "web_url",
+                        "title": "Shop now",
+                        "url": "https://www.facebook.com/Ourchat-100608232037119",
+                        "webview_height_ratio": "full"
+                    }
+                ]
+            }
+        ]
+   
+        };
+        request(
+         {
+     
+            url : "https://graph.facebook.com/v9.0/me/messenger_profile?access_token=" + PAGE_ACCESS_TOKEN,
+            method :"POST" ,
+            headers :{ "Content-Type": "application/json"},
+            form : data
+         },
+         function(error, response, body){
+     
+           console.log(response);
+           console.log(body);
+         }
+           );
+     
+         }
+
+
 
       function setupGetStartedButton(){
      var data ={
