@@ -39,22 +39,22 @@ app.listen(app.get('port'), function () {
           "persistent_menu": [
             {
                 "locale": "default",
-                "composer_input_disabled": true,
+                "composer_input_disabled": false,
                 "call_to_actions": [
                     {
                         "type": "postback",
                         "title": "Talk to an agent",
-                        "payload": "CARE_HELP"
+                        "payload": "PAYLOAD1"
                     },
                     {
                         "type": "postback",
                         "title": "Outfit suggestions",
-                        "payload": "CURATION"
+                        "payload": "PAYLOAD2"
                     },
                     {
                         "type": "web_url",
                         "title": "Shop now",
-                        "url": "https://www.originalcoastclothing.com/",
+                        "url": "https://www.facebook.com/Ourchat-100608232037119/",
                         "webview_height_ratio": "full"
                     }
                 ]
