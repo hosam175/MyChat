@@ -44,12 +44,12 @@ app.listen(app.get('port'), function () {
                     {
                         "type": "postback",
                         "title": "Talk to an agent",
-                        "payload": "PLAYLOAD1"
+                        "payload": "PAYLOAD1"
                     },
                     {
                         "type": "postback",
                         "title": "Outfit suggestions",
-                        "payload": "PLAYLOAD2"
+                        "payload": "PAYLOAD2"
                     },
                     {
                         "type": "web_url",
