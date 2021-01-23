@@ -44,7 +44,7 @@ app.listen(app.get('port'), function () {
                     {
                         "type": "postback",
                         "title": "Talk to an agent",
-                        "payload": "PLYLOAD1"
+                        "payload": "PLAYLOAD1"
                     },
                     {
                         "type": "postback",
