@@ -47,7 +47,7 @@ app.listen(app.get('port'), function () {
       "greeting":[
         {
            "locale": "default",
-           "text": " كيف فيني ساعدك {{user_full_name}} اهلاً"
+           "text": " أهلا وسهلا{{user_full_name}} كيف فيني ساعدك"
         }
         
      ]
