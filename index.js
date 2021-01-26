@@ -44,7 +44,7 @@ function setupPersistentMenu() {
         "call_to_actions": [
           {
             "type": "postback",
-            "title": "Talk to an agent",
+            "title": "hi",
             "payload": "PAYLOAD1"
           },
           {
