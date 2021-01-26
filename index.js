@@ -40,6 +40,7 @@ function setupPersistentMenu() {
     "persistent_menu": [
       {
         "locale": "default",
+        ///اعادة الى قبول التكست
         "composer_input_disabled": false,
         "call_to_actions": [
           {
