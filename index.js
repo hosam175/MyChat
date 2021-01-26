@@ -54,7 +54,7 @@ function setupPersistentMenu() {
           },
           {
             "type": "web_url",
-            "title": "Shop now",
+            "title": "تسوق الان",
             "url": "https://www.facebook.com/Ourchat-100608232037119/",
             "webview_height_ratio": "full"
           }
