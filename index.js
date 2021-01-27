@@ -226,7 +226,7 @@ function receivedPostback(event) {
       request(
         {
 
-          url: "https://graph.facebook.com/v9.0/me/messenger_profile?access_token=" + PAGE_ACCESS_TOKEN,
+          url: "https://graph.facebook.com/v2.6/me/messages?access_token=" + PAGE_ACCESS_TOKEN,
           method: "POST",
           headers: { "Content-Type": "application/json" },
           form: data
