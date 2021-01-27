@@ -111,7 +111,7 @@ function setupGretingText() {
     "greeting": [
       {
         "locale": "default",
-        "text": " أهلا وسهلا {{user_full_name}} كيف فيني ساعدك"
+        "text": " أهلا وسهلا   كيف فيني ساعدك"
       }
 
     ]
