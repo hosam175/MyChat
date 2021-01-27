@@ -111,7 +111,7 @@ function setupGretingText() {
     "greeting": [
       {
         "locale": "default",
-        "text": " أهلا وسهلا{{user_full_name}} كيف فيني ساعدك"
+        "text": " أهلا وسهلا {{user_full_name}} كيف فيني ساعدك"
       }
 
     ]
@@ -191,7 +191,7 @@ function receivedPostback(event) {
       sendTextMessage(senderid, msg)
       break;
     default:
-      var msg = "لم يكن سؤالك واضح"
+      var msg =  " أهلا وسهلا" + {{user_full_name}} + "كيف فيني ساعدك " 
       sendTextMessage(senderid, msg)
       break;
   }
