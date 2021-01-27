@@ -185,24 +185,75 @@ function receivedPostback(event) {
     case "GET_STARTED_PAYLOAD":
       var msg = "تعتبر مؤسستنا واحدة من أهم مؤسسات انتاج وتسويق الملبوسات"
       sendTextMessage(senderid, msg)
-      var data ={};
+      var data = {
+        "recipient": {
+          "id": senderid
+        },
+        "message": {
+          "attachment": {
+            "type": "template",
+            "payload": {
+              "template_type": "generic",
+              "elements": [
+                {
+                  "title": "Welcome!",
+                  "image_url": "https://petersfancybrownhats.com/company_image.png",
+                  "subtitle": "We have the right hat for everyone.",
+                  "default_action": {
+                    "type": "web_url",
+                    "url": "https://petersfancybrownhats.com/view?item=103",
+                    "messenger_extensions": false,
+                    "webview_height_ratio": "tall",
+                    "fallback_url": "https://petersfancybrownhats.com/"
+                  },
+                  "buttons": [
+                    {
+                      "type": "web_url",
+                      "url": "https://petersfancybrownhats.com",
+                      "title": "View Website"
+                    }, {
+                      "type": "postback",
+                      "title": "Start Chatting",
+                      "payload": "DEVELOPER_DEFINED_PAYLOAD"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      };
+      request(
+        {
+
+          url: "https://graph.facebook.com/v9.0/me/messenger_profile?access_token=" + PAGE_ACCESS_TOKEN,
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          form: data
+        },
+        function (error, response, body) {
+
+          console.log(response);
+          console.log(body);
+        }
+      );
       break;
 
     case "PAYLOAD1":
       var msg = "تعتبر مؤسستنا واحدة من أهم مؤسسات انتاج وتسويق الملبوسات"
       sendTextMessage(senderid, msg)
-      
+
       break;
     case "PAYLOAD2":
       var msg = "يمكنكم زيارة موقعنا الالكتروني للاطلاع على الأسعار"
       sendTextMessage(senderid, msg)
       break;
     default:
-      var msg =  " أهلا وسهلا  كيف فيني ساعدك " 
+      var msg = " أهلا وسهلا  كيف فيني ساعدك "
       sendTextMessage(senderid, msg)
       break;
   }
-  
+
 }
 
 
