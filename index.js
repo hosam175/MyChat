@@ -182,7 +182,7 @@ function receivedPostback(event) {
   var senderid = event.sender.id;
   var payload = event.postback.payload;
   switch (payload) {
-    case "GET_STARTED_PAYLOAD":
+    case "Get Started":
       var msg = "تعتبر مؤسستنا واحدة من أهم مؤسسات انتاج وتسويق الملبوسات"
       sendTextMessage(senderid, msg)
       var data = {
