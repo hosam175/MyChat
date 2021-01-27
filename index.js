@@ -182,19 +182,27 @@ function receivedPostback(event) {
   var senderid = event.sender.id;
   var payload = event.postback.payload;
   switch (payload) {
+    case "GET_STARTED_PAYLOAD":
+      var msg = "تعتبر مؤسستنا واحدة من أهم مؤسسات انتاج وتسويق الملبوسات"
+      sendTextMessage(senderid, msg)
+      var data ={};
+      break;
+
     case "PAYLOAD1":
       var msg = "تعتبر مؤسستنا واحدة من أهم مؤسسات انتاج وتسويق الملبوسات"
       sendTextMessage(senderid, msg)
+      
       break;
     case "PAYLOAD2":
       var msg = "يمكنكم زيارة موقعنا الالكتروني للاطلاع على الأسعار"
       sendTextMessage(senderid, msg)
       break;
     default:
-      var msg =  " أهلا وسهلا" + {{user_full_name}} + "كيف فيني ساعدك " 
+      var msg =  " أهلا وسهلا  كيف فيني ساعدك " 
       sendTextMessage(senderid, msg)
       break;
   }
+  
 }
 
 
