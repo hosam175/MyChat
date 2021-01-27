@@ -167,6 +167,8 @@ function receivedMessage(event) {
       sendTextMessage(senderid, msg)
       break;
     case "help":
+      var msg = "Ok , How Can I  Help you ?"
+      sendTextMessage(senderid, msg)
       break;
     default:
       break;
