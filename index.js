@@ -286,7 +286,7 @@ function sendTextMessage(recipientId, msg) {
 app.get("/webhook", function (req, res) {
 
   const PAGE_VERIFY_TOKEN = "ourchatbotwebapp1234";
-
+//change
   let token = req.query['hub.verify_token'];
   let challenge = req.query['hub.challenge'];
 
